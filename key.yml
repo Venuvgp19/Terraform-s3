@@ -1,6 +1,0 @@
-env:
-    access-key = ${{secrests.ACCESS_KEY}}
-
-job1:
-    run:
-        echo ${{access-key}}
