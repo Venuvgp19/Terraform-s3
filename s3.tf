@@ -129,3 +129,6 @@ output "Key_arn" {
 output "Bucket-ID" {
     value = "${aws_s3_bucket.S3.id}"
 }
+output "Bucket-ARN" {
+    value = "${aws_s3_bucket.S3.arn}"
+}
