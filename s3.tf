@@ -95,14 +95,15 @@ data "aws_iam_policy_document" "secure_bucket_policy" {
 resource "aws_s3_bucket" "S3" {
   bucket = "${var.prefix}-lambda-functions"
   acl    = "private"
+  lifecycle {
+    prevent_destroy = true
+  }
   versioning {
     enabled = true
   }
     lifecycle_rule {
     id      = "expiry"
     enabled = true
-    prevent_destroy = true
-
     expiration {
        days = 180
     }
