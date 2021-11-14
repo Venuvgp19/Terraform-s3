@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "secure_bucket_policy" {
       "${aws_s3_bucket.S3.arn}/*"
       ]
     principals {
-      identifiers = "${var.userids}"
+      identifiers = "${var.Accountids}"
       type        = "AWS"
     }
 
