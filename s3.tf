@@ -101,6 +101,7 @@ resource "aws_s3_bucket" "S3" {
     lifecycle_rule {
     id      = "expiry"
     enabled = true
+    prevent_destroy = true
 
     expiration {
        days = 180
