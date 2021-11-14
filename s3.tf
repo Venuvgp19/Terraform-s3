@@ -2,6 +2,22 @@ resource "aws_kms_key" "S3-KMS-Key" {
   description             = "KMS key for Lambda s3"
 }
 data "aws_iam_policy_document" "secure_bucket_policy" {
+    statement {
+    actions = [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ]
+    effect = "Allow"
+    resources = [
+      "${aws_s3_bucket.S3.arn}",
+      "${aws_s3_bucket.S3.arn}/*"
+      ]
+    principals {
+      identifiers = "${var.userids}"
+      type        = "AWS"
+    }
+
+	}
   statement {
     actions   = [
       "s3:*"
